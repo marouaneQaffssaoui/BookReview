@@ -1,5 +1,6 @@
 package com.example.bookreview.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "addedBy", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Book> booksAdded;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

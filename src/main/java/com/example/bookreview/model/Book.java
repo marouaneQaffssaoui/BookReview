@@ -1,5 +1,6 @@
 package com.example.bookreview.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "added_by_user_id")
+    @JsonBackReference
     private User addedBy;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
