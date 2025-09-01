@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -12,6 +13,9 @@ public class User {
     private Long id;
     private String fname;
     private String lname;
+
+    @Column(unique = true)
+    private String email;
     private String password;
 
     @OneToMany(mappedBy = "addedBy", cascade = CascadeType.ALL)
